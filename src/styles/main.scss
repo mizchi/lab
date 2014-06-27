@@ -1,26 +1,39 @@
 @import "bourbon/css3/animation";
 
-.CodeMirror {
-  height: 450px;
+// .CodeMirror {
+//   height: 450px;
+// }
+body {
+  background-color: #f9f9f7;
 }
 
-
 /* editor wrapper */
-.mdex-container {
-  max-width: 800px;
+.lab-container {
+  width: 800px;
   // padding: 10px;
   // margin: 10px auto;
 }
-.mdex-editor-container {
+.coffee-editor-container {
   float: left;
   width: 450px;
 }
 
-body {
-  background-color: #f9f9f7;
+.jade-editor-container {
+  float: left;
+  width: 450px;
 }
 
 .preview {
   width: 400px;
   float: left;
 }
+
+.CodeMirror {
+  border: 1px solid #eee;
+  height: auto;
+}
+.CodeMirror-scroll {
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+

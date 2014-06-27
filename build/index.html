@@ -11,27 +11,29 @@
     <link rel="stylesheet" href="vendor.css" />
     <link rel="stylesheet" href="lab.css" />
 
-    <title>mdex editor</title>
+    <title>labs</title>
 
     <style type="text/css">
     </style>
   </head>
 
   <body>
-    <div class="mdex-container">
-      <div class="mdex-editor-container">
-        <textarea id="editor" placeholder="Content here ...."></textarea>
+    <button class='coffee'>coffee</button>
+    <button class='jade'>jade</button>
+    <button class='both'>both</button>
+    <div class="lab-container">
+      <div class="coffee-editor-container">
+        <textarea id="coffee-editor"></textarea>
       </div>
+
+      <div class="jade-editor-container">
+        <textarea id="jade-editor"></textarea>
+      </div>
+
       <div id='preview'>
         <span>output</span>
         <div class='output'></div>
       </div>
     </div>
-
-    <script type="text/javascript">
-      var editor = new LabEditor();
-      editor.render();
-    </script>
-
   </body>
 </html>

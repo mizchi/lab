@@ -60,6 +60,7 @@ gulp.task 'cmlibs', ->
     './bower_components/codemirror/addon/edit/continuelist.js'
     './bower_components/codemirror/mode/markdown/markdown.js'
     './bower_components/codemirror/mode/coffeescript/coffeescript.js'
+    # './bower_components/codemirror/mode/jade/jade.js'
     './bower_components/codemirror/mode/xml/xml.js'
     ]
   .pipe concat('cmlibs.js')
