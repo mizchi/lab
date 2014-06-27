@@ -13,10 +13,19 @@
     "test",
     "tests"
   ],
-  "devDependencies": {
+  "dependencies": {
     "codemirror": "~4.3.0",
     "marked": "~0.3.2",
     "icomoon": "~0.0.1",
     "coffee-script": "~1.7.1"
+  },
+  "overrides": {
+    "codemirror":{
+      "main": "lib/codemirror.js"
+    },
+    "coffee-script":{
+      "main": "extras/coffee-script.js"
+    }
   }
+
 }

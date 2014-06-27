@@ -15,6 +15,7 @@
     "coffeeify": "^0.6.0",
     "connect": "^3.0.1",
     "gulp": "^3.8.0",
+    "gulp-bower-files": "^0.2.5",
     "gulp-browserify": "^0.5.0",
     "gulp-concat": "^2.2.0",
     "gulp-plumber": "^0.6.3",
