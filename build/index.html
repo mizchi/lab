@@ -6,24 +6,14 @@
 
     <script type="text/javascript" src="vendor.js"></script>
 
-    <script type="text/javascript" src="mdex.js"></script>
+    <script type="text/javascript" src="lab.js"></script>
 
-    <link rel="stylesheet" href="icomoon/style.css" />
-    <link rel="stylesheet" href="mdex.css" />
+    <link rel="stylesheet" href="vendor.css" />
+    <link rel="stylesheet" href="lab.css" />
 
     <title>mdex editor</title>
 
     <style type="text/css">
-      body {
-        padding: 0;
-        margin: 0;
-        background-color: #f9f9f7;
-      }
-
-      .preview {
-        float: left;
-        width: 300px;
-      }
     </style>
   </head>
 
@@ -32,36 +22,14 @@
       <div class="mdex-editor-container">
         <textarea id="editor" placeholder="Content here ...."></textarea>
       </div>
-      <div id='preview'></div>
+      <div id='preview'>
+        <span>output</span>
+        <div class='output'></div>
+      </div>
     </div>
 
     <script type="text/javascript">
-      var el = document.createElement('span')
-      el.innerText = 'hello';
-      var myButton = {
-        el: el,
-        action: function(){
-          console.log('hello');
-        }
-      }
-
-      var editor = new Mdex({
-        editorTarget: '#editor',
-        previewTarget: '#preview',
-        toolbar: [
-          {name: 'bold',           action: Mdex.toggleBold},
-          {name: 'italic',         action: Mdex.toggleItalic},
-          '|',
-          {name: 'quote',          action: Mdex.toggleBlockquote},
-          {name: 'unordered-list', action: Mdex.toggleUnOrderedList},
-          {name: 'ordered-list',   action: Mdex.toggleOrderedList},
-          '|',
-          {name: 'link',           action: Mdex.drawLink},
-          {name: 'image',          action: Mdex.drawImage},
-          '|',
-          myButton
-        ]
-      });
+      var editor = new LabEditor();
       editor.render();
     </script>
 

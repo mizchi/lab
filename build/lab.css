@@ -1,0 +1,17 @@
+.CodeMirror {
+  height: 450px; }
+
+/* editor wrapper */
+.mdex-container {
+  max-width: 800px; }
+
+.mdex-editor-container {
+  float: left;
+  width: 450px; }
+
+body {
+  background-color: #f9f9f7; }
+
+.preview {
+  width: 400px;
+  float: left; }

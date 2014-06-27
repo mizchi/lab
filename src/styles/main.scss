@@ -1,0 +1,26 @@
+@import "bourbon/css3/animation";
+
+.CodeMirror {
+  height: 450px;
+}
+
+
+/* editor wrapper */
+.mdex-container {
+  max-width: 800px;
+  // padding: 10px;
+  // margin: 10px auto;
+}
+.mdex-editor-container {
+  float: left;
+  width: 450px;
+}
+
+body {
+  background-color: #f9f9f7;
+}
+
+.preview {
+  width: 400px;
+  float: left;
+}
