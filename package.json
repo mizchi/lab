@@ -1,6 +1,5 @@
 {
-  "family": "mdex",
-  "name": "mdex",
+  "name": "mizchi-lab",
   "version": "0.1.1",
   "repository": {
     "type": "git",
@@ -11,6 +10,7 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "browserify": "4.1.11",
     "coffee-script": "^1.7.1",
     "coffeeify": "^0.6.0",
     "connect": "^3.0.1",
@@ -21,6 +21,8 @@
     "gulp-plumber": "^0.6.3",
     "gulp-rename": "^1.2.0",
     "gulp-sass": "^0.7.2",
-    "gulp-watch": "^0.6.6"
+    "gulp-watch": "^0.6.6",
+    "jadeify": "^2.3.0",
+    "vinyl-source-stream": "^0.1.1"
   }
 }

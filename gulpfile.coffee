@@ -1,5 +1,5 @@
 gulp       = require 'gulp'
-browserify = require 'gulp-browserify'
+browserify = require 'browserify'
 rename     = require 'gulp-rename'
 watch      = require 'gulp-watch'
 plumber    = require 'gulp-plumber'
@@ -7,29 +7,30 @@ connect    = require 'connect'
 concat     = require 'gulp-concat'
 sass       = require 'gulp-sass'
 bowerFiles = require "gulp-bower-files"
+source     = require 'vinyl-source-stream'
 
-gulp.task 'coffee', ->
-  gulp
-    .src 'src/lab.coffee', read: false
-    .pipe plumber()
-    .pipe browserify
-      transform: ['coffeeify']
-      extensions: ['.coffee']
-      debug: true
-    .pipe rename 'lab.js'
-    .pipe gulp.dest './build'
+gulp.task 'js', ->
+  browserify
+    entries: ['./app/lab.coffee']
+    extensions: ['.coffee','.jade', '.js']
+  .transform 'coffeeify'
+  .transform 'jadeify'
+  .bundle()
+  .pipe plumber()
+  .pipe source 'app.js'
+  .pipe gulp.dest 'public'
 
 gulp.task 'server', (next) ->
   connect()
-    .use connect.static './build'
+    .use connect.static './public'
     .listen 3456, next
 
 gulp.task 'dev', ['build'], ->
-  gulp.watch('src/**/*.coffee', ['coffee'])
-  gulp.watch('src/**/*.jade', ['js'])
-  gulp.watch('src/styles/*.scss', ['css'])
+  gulp.watch('app/**/*.coffee', ['js'])
+  gulp.watch('app/**/*.jade', ['js'])
+  gulp.watch('app/styles/*.scss', ['css'])
 
-gulp.task 'build', ['vendor', 'concat-css','coffee', 'css', 'cmlibs']
+gulp.task 'build', ['vendor', 'concat-css','js', 'css', 'cmlibs']
 gulp.task 'default', ['build']
 
 gulp.task 'concat-css', ->
@@ -37,21 +38,21 @@ gulp.task 'concat-css', ->
     './bower_components/codemirror/lib/codemirror.css'
     ]
   .pipe concat('vendor.css')
-  .pipe gulp.dest('./build/')
+  .pipe gulp.dest('./public')
 
 gulp.task 'css', ->
   gulp
-    .src './src/styles/*.scss'
+    .src './app/styles/*.scss'
     .pipe plumber()
     .pipe sass()
     .pipe rename 'lab.css'
-    .pipe gulp.dest './build'
+    .pipe gulp.dest './public'
 
 gulp.task 'vendor', ->
   bowerFiles()
     .pipe plumber()
     .pipe concat('vendor.js')
-    .pipe gulp.dest('./build')
+    .pipe gulp.dest('./public')
 
 gulp.task 'cmlibs', ->
   gulp.src [
@@ -64,4 +65,4 @@ gulp.task 'cmlibs', ->
     './bower_components/codemirror/mode/xml/xml.js'
     ]
   .pipe concat('cmlibs.js')
-  .pipe gulp.dest('./build/')
+  .pipe gulp.dest('./public')
